@@ -1,0 +1,3 @@
+[submodule "app/ml"]
+	path = app/ml
+	url = https://github.com/shampsdev/rzd-ml
