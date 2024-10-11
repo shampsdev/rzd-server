@@ -1,6 +1,6 @@
 from fastapi import FastAPI
-from .cats.api import router as cats_router
+from .health.api import router as health_router
 
 app = FastAPI()
 
-app.include_router(prefix="/cats", router=cats_router)
+app.include_router(prefix="/health", router=health_router)
