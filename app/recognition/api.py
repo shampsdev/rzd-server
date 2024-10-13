@@ -8,9 +8,7 @@ from app.ml.src.predictor import Predictor
 router = APIRouter()
 predictor = Predictor()
 
-# Dictionary to store the processing status and result
 tasks = {}
-# Variable to store the last uploaded task ID
 last_task_id = None
 
 def process_file(task_id: str, file_path: str):
@@ -18,7 +16,7 @@ def process_file(task_id: str, file_path: str):
     result = predictor(file_path)
     tasks[task_id]['status'] = 'completed'
     tasks[task_id]['result'] = result
-    os.remove(file_path)  # Cleanup after processing
+    os.remove(file_path)
 
 @router.post("/upload")
 async def upload_voice(background_tasks: BackgroundTasks, file: UploadFile = File(...)):
